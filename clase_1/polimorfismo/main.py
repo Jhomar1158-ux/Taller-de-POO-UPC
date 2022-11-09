@@ -1,6 +1,5 @@
 
 class Loro:
-
     def volar(self):
         print("Loro volando!")
 
