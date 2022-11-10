@@ -1,14 +1,15 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
 import requests
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/hola')
 def hello_world():
     return "Hola Mundo!!!"
-
-@app.route("/ricky")
+@app.route('/jhomar')
+def hola_jhomar():
+    return "Hola Jhomar!!!"
+@app.route("/rickySerie")
 def ricky():
     url1='https://rickandmortyapi.com/api/character'
     data = requests.get(url1)
@@ -17,7 +18,10 @@ def ricky():
     for i in personajes:
         print(i['name'])
         print("-")
-    return render_template("index.html",personajes=personajes)
+    return render_template("dashboard.html", personajes=personajes)
+    
+    
+
         
 if __name__ == '__main__':
     app.run()
